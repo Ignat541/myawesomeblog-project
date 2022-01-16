@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'blog.apps.BlogConfig',
     'events.apps.EventsConfig',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -74,19 +75,29 @@ WSGI_APPLICATION = 'myawesomeblog.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         # 'ENGINE': 'django.db.backends.sqlite3',
+#         # 'NAME': BASE_DIR / 'media',
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'myawesomeblogdb',
+#         'USER': 'postgres',
+#         'PASSWORD': 'blog1234',
+#         'HOST': 'localhost',
+#         'PORT': '5432',
+#     }
+# }
+
+import os
+
+PROJECT_DIR = os.path.abspath(os.path.dirname(__file__))
+
 DATABASES = {
     'default': {
-        # 'ENGINE': 'django.db.backends.sqlite3',
-        # 'NAME': BASE_DIR / 'media',
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'myawesomeblogdb',
-        'USER': 'postgres',
-        'PASSWORD': 'blog1234',
-        'HOST': 'localhost',
-        'PORT': '5432',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(PROJECT_DIR, 'db.sqlite3'),
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
@@ -134,3 +145,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 MEDIA_ROOT = BASE_DIR / 'media'
 
 MEDIA_URL = '/media/'
+
+TIME_ZONE = 'Europe/Warsaw'
