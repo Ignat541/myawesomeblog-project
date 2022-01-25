@@ -18,6 +18,7 @@ from django.urls import path, include
 from django.conf.urls.static import static
 from django.conf import settings
 import events.views
+<<<<<<< HEAD
 
 
 urlpatterns = [
@@ -26,3 +27,10 @@ urlpatterns = [
     path('posts/', include('blog.urls')),
 ] + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)\
         + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+=======
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('', events.views.home, name='home')
+] + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
+>>>>>>> c7bce7816e4a2acac17d70bd3d4b1aea577abcec
