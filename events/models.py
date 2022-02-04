@@ -7,5 +7,3 @@ class Event(models.Model):
 	event_text = models.CharField(max_length=300)
 
 
-def __str__(self):
-	return self.event_text
